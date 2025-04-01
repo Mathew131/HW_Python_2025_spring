@@ -44,7 +44,6 @@ class Matrix(Tensor):
         return i * cols + j
     
     def __getitem__(self, ind):
-        # print(ind, type(ind))
         data = self.data.copy()
         rows = self.rows
         cols = self.cols
