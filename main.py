@@ -75,11 +75,7 @@ class Matrix(Tensor):
                 rows = len(data)
                 cols = 1
             elif isinstance(ind[0], slice) and isinstance(ind[1], slice):
-                data = [
-                    self.data[self.conv_rc2i(i, j)]
-                    for i in range(self.rows) if i in range(*ind[0].indices(self.rows))
-                    for j in range(self.cols) if j in range(*ind[1].indices(self.cols))
-                ]
+                data = [self.data[self.conv_rc2i(i, j)] for i in range(*ind[0].indices(self.rows)) for j in range(*ind[1].indices(self.cols))]
                 rows = len(range(*ind[0].indices(self.rows)))
                 cols = len(range(*ind[1].indices(self.rows)))
 
